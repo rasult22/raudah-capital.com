@@ -19,8 +19,7 @@ module.exports = {
         }
       },
       fontFamily: {
-        railway: ["Raleway Variable"],
-        sans: ["Inter Variable", ...defaultTheme.fontFamily.sans],
+        Inter: ["Inter Variable"],
       },
       colors: {
         primary: "var(--color-primary)",
