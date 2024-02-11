@@ -4,16 +4,27 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      animation: {
+        'infinite-scroll': 'infinite-scroll 30s linear infinite',
+        'infinite-scroll-sm': 'infinite-scroll-sm 30s linear infinite',
+      },
+      keyframes: {
+        'infinite-scroll': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-100%)' },
+        },
+        'infinite-scroll-sm': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-400%)' },
+        }
+      },
       fontFamily: {
+        railway: ["Raleway Variable"],
         sans: ["Inter Variable", ...defaultTheme.fontFamily.sans],
       },
       colors: {
         primary: "var(--color-primary)",
         secondary: "var(--color-secondary)",
-      },
-      textColor: {
-        default: "var(--color-text)",
-        offset: "var(--color-text-offset)",
       },
       backgroundColor: {
         default: "var(--color-background)",
@@ -22,10 +33,13 @@ module.exports = {
       borderColor: {
         default: "var(--color-border)",
       },
+      screens: {
+        "custom-screen": { raw: "(max-height: 670px)" },
+        lg: { min: "1200px" },
+        md: { max: "1200px", min: "700px" },
+        sm: { max: "700px", min: "0px" },
+      },
     },
-  },
-  corePlugins: {
-    fontSize: false,
   },
   plugins: [require("tailwindcss-fluid-type")],
 };
