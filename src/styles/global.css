@@ -10,3 +10,44 @@ a,
   @apply bg-clip-text text-transparent;
   @apply bg-gradient-to-br from-indigo-500 via-fuchsia-500 to-pink-500;
 }
+
+
+.about-bg { 
+  background: linear-gradient(180deg, rgba(1, 2, 3, 0.61) 10%, rgba(0, 0, 0, 0.00) 100%), linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.84) 100%), url("/about-img.png"), transparent 50% / contain no-repeat;
+  background-size: contain;
+  background-position: bottom;
+}
+.about-bg-sm { 
+  
+  background: linear-gradient(180deg, rgba(1, 2, 3, 0.61) 10%, rgba(0, 0, 0, 0.00) 10%), linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.00) 100%), url("/about-img.png"), transparent 50% / contain no-repeat;
+}
+
+.expectation-card {
+  border-radius: 32px;
+  background: linear-gradient(180deg, #1D2689 0%, #7F8AF9 0.01%, #01080E 100%);
+}
+img {
+  -webkit-user-drag: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #01080E;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #1D2689;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #7F8AF9;
+}
