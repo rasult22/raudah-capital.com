@@ -20,6 +20,7 @@ module.exports = {
       },
       fontFamily: {
         Inter: ["Inter Variable"],
+        railway: ["Raleway Variable"],
       },
       colors: {
         primary: "var(--color-primary)",
