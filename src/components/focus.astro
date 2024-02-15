@@ -1,0 +1,17 @@
+---
+import Accordion from './svelte/accordion.svelte'
+---
+
+<div id="program" class="bg-[url('/bg/bg-program.webp')] sm:px-[24px] pt-[135px] sm:pb-[104px] sm:pt-[50px] pb-[200px] bg-cover bg-left-bottom bg-no-repeat font-railway">
+  <div class="max-w-[1280px] mx-auto flex items-center">
+    <img class="max-w-[536px]" src="/focus.png" alt="statistics image">
+    <div class="ml-[80px]">
+      <div class="text-[54px] leading-[59px] font-bold">
+        Наш <span class="text-[#0080B5]">фокус</span> в инвестиций
+      </div>
+      <div class="mt-[20px]">
+        <Accordion client:idle/>
+      </div>
+    </div>
+  </div>
+</div>
