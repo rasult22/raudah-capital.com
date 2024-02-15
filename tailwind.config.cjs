@@ -4,6 +4,9 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      boxShadow: {
+        'card': '0px 12px 21.8px -4px rgba(121, 132, 155, 0.10)'
+      },
       animation: {
         'infinite-scroll': 'infinite-scroll 30s linear infinite',
         'infinite-scroll-sm': 'infinite-scroll-sm 30s linear infinite',
@@ -33,6 +36,7 @@ module.exports = {
       borderColor: {
         default: "var(--color-border)",
       },
+      
       screens: {
         "custom-screen": { raw: "(max-height: 670px)" },
         lg: { min: "1200px" },
