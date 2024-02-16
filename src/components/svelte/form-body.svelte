@@ -1,19 +1,40 @@
 <script>
-
-  const onSubmit = (e) => {
-    e.preventDefault()
+import PocketBase from 'pocketbase';
+const pb = new PocketBase('https://rasult22.pockethost.io');
+let fileInput = null
+let name = ''
+let company = ''
+let email = ''
+let phone = ''
+let project_state = ''
+let project_goals = ''
+const onSubmit = (e) => {
+  if (fileInput.files.length) {
+    const formData = new FormData();
+    formData.append('email', email)
+    formData.append('phone', phone)
+    formData.append('person_name', name)
+    formData.append('company_name', company)
+    formData.append('project_state', project_state)
+    formData.append('project_goals', project_goals)
+    formData.append('project_pdf', fileInput.files[0])
+    pb.collection('startups').create(formData);
   }
+  e.preventDefault()
+}
 </script>
 
 <form action="" method="post" on:submit={onSubmit} class="mx-auto max-w-[560px] mt-[20px] text-[16px]">
   <div class="flex space-x-2 relative">
     <input
+      bind:value={name}
       class="border border-[#E0E3EB] w-full py-[10px] px-[8px] rounded-[4px]"
       type="text"
       placeholder="Ваше имя*"
     />
     <span class="text-red-500 text-[25px] absolute -left-1 -top-1">*</span>
     <input
+      bind:value={company}
       class="border border-[#E0E3EB] w-full py-[10px] px-[8px] rounded-[4px]"
       type="text"
       placeholder="Ваша компания*"
@@ -22,12 +43,14 @@
   </div>
   <div class="flex space-x-2 mt-[14px] relative">
     <input
+      bind:value={email}
       class="relative border border-[#E0E3EB] w-full py-[10px] px-[8px] rounded-[4px]"
       type="email"
       placeholder="Ваш email*"
     />
     <span class="text-red-500 text-[25px] absolute -left-1 -top-1">*</span>
     <input
+      bind:value={phone}
       class="border border-[#E0E3EB] w-full py-[10px] px-[8px] rounded-[4px]"
       type="text"
       placeholder="Ваш номер*"
@@ -37,6 +60,7 @@
   <div class="relative">
     <span class="text-red-500 text-[25px] absolute left-1 top-2">*</span>
     <input
+      bind:value={project_state}
       class="mt-[14px] border w-full border-[#E0E3EB] py-[10px] px-[8px] rounded-[4px]"
       type="text"
       placeholder="На какой стадии ваш проект?*"
@@ -45,6 +69,7 @@
   <div class="relative">
     <span class="text-red-500 text-[25px] absolute left-1 top-2">*</span>
     <textarea
+      bind:value={project_goals}
       class="mt-[14px] border w-full border-[#E0E3EB] py-[10px] px-[8px] rounded-[4px]"
       type="text"
       placeholder="О цели вашего проекта (коротко)*"
@@ -70,7 +95,7 @@
     <span class="text-[#A3AAC2]"
       >презентацию с бизнес планом о проекте (в PDF)*</span
     >
-    <input class="block w-full mt-[14px]" accept=".pdf" type="file" />
+    <input bind:this={fileInput} class="block w-full mt-[14px]" accept=".pdf" type="file" />
   </div>
   <div>
     <span class="text-red-500 text-[25px]">*</span>
