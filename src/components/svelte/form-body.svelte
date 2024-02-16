@@ -31,6 +31,15 @@ const onSubmit = (e) => {
     formData.append('project_pdf', fileInput.files[0])
     pb.collection('startups').create(formData).then(() => {
       isDone = true
+      name = ''
+      company = ''
+      email = ''
+      phone = ''
+      project_state = ''
+      project_goals = ''
+      setTimeout(() => {
+        isDone = false
+      }, 3000)
     }).finally(() => {
       isLoading = false
     })
