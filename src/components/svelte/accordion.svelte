@@ -52,7 +52,7 @@ const open = (id) => {
     </h6>
     <div
       data-collapse="collapse-1"
-      class={`${item.isOpen ? 'h-[95px] sm:h-[200px] overflow-visible' : 'h-0  overflow-hidden'}  transition-all duration-300 ease-in-out`}
+      class={`${item.isOpen ? 'h-[140px] sm:h-[200px] overflow-visible' : 'h-0  overflow-hidden'}  transition-all duration-300 ease-in-out`}
     >
       <div class="p-4 text-[15px] leading-normal text-blue-gray-500/80">
        {item.content}
