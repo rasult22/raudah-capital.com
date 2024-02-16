@@ -1,0 +1,21 @@
+---
+import UIBtn from "./ui-btn.astro";
+import FormBody from "./svelte/form-body.svelte";
+---
+
+<div id="form" class="relative bg-[url('/bg/location-bg.webp')] bg-cover font-railway">
+  <div
+    class="relative mx-auto max-w-[1280px] bg-[#F7FDFF] pb-[87px] pt-[109px] sm:px-[24px] sm:pb-[70px] sm:pt-[0px]"
+  >
+    <div class="text-center text-[36px] font-bold">
+      Подать <span class="text-[#0080B5]">заявку</span> с вашим стартапом
+    </div>
+    <div
+      class="mx-auto mt-[21px] max-w-[500px] text-center text-[16px] text-[#A3AAC2]"
+    >
+      Мы принимаем заявки от стартапов на любой стадии, которые ищут шариатское
+      финансирование и поддержку.
+    </div>
+    <FormBody client:idle />
+  </div>
+</div>
