@@ -57,37 +57,37 @@ const onSubmit = (e) => {
   </div>
   {/if}
   <div class={isDone || isLoading ? 'opacity-[0.4]' : ''}>
-    <div class="flex space-x-2 relative">
+    <div class="flex sm:flex-wrap sm:space-x-0 sm:space-y-[14px] space-x-2 relative">
       <input
         bind:value={name}
         class="border border-[#E0E3EB] w-full py-[10px] px-[8px] rounded-[4px]"
         type="text"
         placeholder="Ваше имя*"
       />
-      <span class="text-red-500 text-[25px] absolute -left-1 -top-1">*</span>
+      <span class="text-red-500 text-[25px] absolute -left-1 sm:-top-4 sm:left-1 -top-1">*</span>
       <input
         bind:value={company}
         class="border border-[#E0E3EB] w-full py-[10px] px-[8px] rounded-[4px]"
         type="text"
         placeholder="Ваша компания*"
       />
-      <span class="text-red-500 text-[25px] absolute left-[50%] -top-1">*</span>
+      <span class="text-red-500 text-[25px] absolute sm:left-1 sm:top-[40%] left-[50%] -top-1">*</span>
     </div>
-    <div class="flex space-x-2 mt-[14px] relative">
+    <div class="flex sm:flex-wrap sm:space-x-0 sm:space-y-[14px] space-x-2 mt-[14px] relative">
       <input
         bind:value={email}
         class="relative border border-[#E0E3EB] w-full py-[10px] px-[8px] rounded-[4px]"
         type="email"
         placeholder="Ваш email*"
       />
-      <span class="text-red-500 text-[25px] absolute -left-1 -top-1">*</span>
+      <span class="text-red-500 text-[25px] absolute -left-1 sm:-top-4 sm:left-1 -top-1">*</span>
       <input
         bind:value={phone}
         class="border border-[#E0E3EB] w-full py-[10px] px-[8px] rounded-[4px]"
         type="text"
         placeholder="Ваш номер*"
       />
-      <span class="text-red-500 text-[25px] absolute left-[50%] -top-1">*</span>
+      <span class="text-red-500 text-[25px] absolute sm:left-1 sm:top-[40%] left-[50%] -top-1">*</span>
     </div>
     <div class="relative">
       <span class="text-red-500 text-[25px] absolute left-1 top-2">*</span>
@@ -135,7 +135,7 @@ const onSubmit = (e) => {
     </div>
     {#if showError}
       <div class="mt-[10px] text-center">
-        <div class="flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 " role="alert">
+        <div class="flex items-center p-4 mb-4 text-sm sm:text-[14px] text-red-800 border border-red-300 rounded-lg bg-red-50 " role="alert">
           <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
           </svg>
