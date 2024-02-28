@@ -1,56 +1,108 @@
 ---
-import UIBtn from "./ui-btn.astro"
+import UIBtn from "./ui-btn.astro";
+const keyVal = {
+  "Подаете заявку": "تقدّمون طلبا",
+  "Заполните онлайн-форму заявки на нашем сайте. Отправьте подробный бизнес-план, который описывает ваше видение, миссию и как ваш проект приносит пользу обществу.":
+    "املأوا استمارة الطلب عبر موقعنا على الإنترنت. أرسلوا خطة عمل مفصّلة تصف رؤيتكم ومهمتكم وكيف يمكن لمشروعكم أن يسهم في الخدمة للمجتمع",
 
+  "Проверяем ваш стартап": "نقوم بفحص مشروع الشركة الناشئة الخاص بك",
+  "Наша команда рассмотрит вашу заявку и свяжется с вами для собеседования.":
+    "سيقوم فريقنا بمراجعة طلبكم وسيتواصل معكم لإجراء مقابلة",
+
+  "Получаете поддержку": "تحصلون على الدعم",
+  "Успешные кандидаты будут приняты в нашу программу и получат индивидуальную поддержку.":
+    "سيتم قبول المرشحين الناجحين في برنامجنا وسيتلقّون الدعم الفردي",
+
+  "Как подать заявку для инвестиций?": "كيفية تقديم الطلب للحصول على استثمار؟",
+  "Мы приглашаем стартапы, разделяющие наши ценности и стремящиеся оказать позитивное влияние на мусульманское сообщество, подать заявку на финансирование.":
+    "ندعو الشركات الناشئة التي تشترك في قيمنا وتسعى لتحقيق تأثير إيجابي على المجتمع المسلم إلى تقديم الطلب للحصول على تمويل",
+  "Вместе мы сможем создать основу для нового поколения компаний, которые будут способствовать развитию и процветанию наших общин по всему миру.":
+    "معًا يمكننا بناء أساسًا لجيل جديد من الشركات التي ستسهم في تطوير وازدهار مجتمعاتنا في جميع أنحاء العالم",
+    "Подать заявку": "تقديم الطلب",
+};
+const { lang } = Astro.props;
+
+const t = (key: string) => {
+  if (lang === "ar" && keyVal[key]) {
+    return keyVal[key] as string;
+  } else {
+    return key;
+  }
+};
 ---
-<div class="font-railway  sm:hidden pb-[200px] sm:pb-[50px] sm:pt-[5px] pt-[27px]">
-  <div class="max-w-[1280px] sm:px-[24px] mx-auto flex justify-center">    <div class="flex min-w-[50%] flex-col items-stretch">
-      <div class="shadow-card p-[30px] rounded-[16px] w-[350px]">
-        <div class="flex items-center text-[24px] leading-[28px] font-bold space-x-[20px]">
-          <img width="60" height="60" src="/illus.svg" alt="">
-          <span>
-            Подаете заявку
-          </span>
+
+<div
+  class="pb-[200px] pt-[27px] font-railway sm:hidden sm:pb-[50px] sm:pt-[5px]"
+>
+  <div class="mx-auto flex max-w-[1280px] justify-center sm:px-[24px]">
+    <div class="flex min-w-[50%] flex-col items-stretch">
+      <div class="w-[350px] rounded-[16px] p-[30px] shadow-card">
+        <div
+          class="flex items-center space-x-[20px] text-[24px] font-bold leading-[28px]"
+        >
+          <img width="60" height="60" src="/illus.svg" alt="" />
+          <span> {t`Подаете заявку`}</span>
         </div>
-        <div class="text-[16px] leading-[20px] mt-[16px]">
-          Заполните онлайн-форму заявки на нашем сайте. Отправьте подробный бизнес-план, который описывает ваше видение, миссию и как ваш проект приносит пользу обществу.
-        </div>
-      </div>
-      <div class="shadow-card -mt-[40px] z-[2] relative self-end p-[30px] rounded-[16px] w-[350px]">
-        <div class="flex items-center text-[24px] leading-[28px] font-bold space-x-[20px]">
-          <img width="60" height="60" src="/illus2.svg" alt="">
-          <span>
-            Проверяем ваш стартап 
-          </span>
-        </div>
-        <div class="text-[16px] leading-[20px] mt-[16px]">
-          Наша команда рассмотрит вашу заявку и свяжется с вами для собеседования.
+        <div class="mt-[16px] text-[16px] leading-[20px]">
+          {
+            t`Заполните онлайн-форму заявки на нашем сайте. Отправьте подробный бизнес-план, который описывает ваше видение, миссию и как ваш проект приносит пользу обществу.`
+          }
         </div>
       </div>
-      <div class="shadow-card -mt-[40px] p-[30px] rounded-[16px] w-[350px]">
-        <div class="flex items-center text-[24px] leading-[28px] font-bold space-x-[20px]">
-          <img width="60" height="60" src="/illus3.svg" alt="">
-          <span>
-            Получаете  поддержку
-          </span>
+      <div
+        class="relative z-[2] -mt-[40px] w-[350px] self-end rounded-[16px] p-[30px] shadow-card"
+      >
+        <div
+          class="flex items-center space-x-[20px] text-[24px] font-bold leading-[28px]"
+        >
+          <img width="60" height="60" src="/illus2.svg" alt="" />
+          <span>{t`Проверяем ваш стартап`}</span>
         </div>
-        <div class="text-[16px] leading-[20px] mt-[16px]">
-          Успешные кандидаты будут приняты в нашу программу и получат индивидуальную поддержку.
+        <div class="mt-[16px] text-[16px] leading-[20px]">
+          {
+            t`Наша команда рассмотрит вашу заявку и свяжется с вами для собеседования.`
+          }
         </div>
       </div>
-        
+      <div class="-mt-[40px] w-[350px] rounded-[16px] p-[30px] shadow-card">
+        <div
+          class="flex items-center space-x-[20px] text-[24px] font-bold leading-[28px]"
+        >
+          <img width="60" height="60" src="/illus3.svg" alt="" />
+          <span> {t`Получаете поддержку`}</span>
+        </div>
+        <div class="mt-[16px] text-[16px] leading-[20px]">
+          {
+            t`Успешные кандидаты будут приняты в нашу программу и получат индивидуальную поддержку.`
+          }
+        </div>
+      </div>
     </div>
-    <div class="max-w-[379px] ml-[39px]">
-      <div class="text-[48px] leading-[53px] font-Inter text-[#263238] font-bold">
-        Как подать <span class="text-[#0080B5]">заявку</span> для инвестиций?
-      </div>
-      <div class="text-[16px] mt-[22px]">
-        Мы приглашаем стартапы, разделяющие наши ценности и стремящиеся оказать позитивное влияние на мусульманское сообщество, подать заявку на финансирование. 
-<br/>
-<br/>
-Вместе мы сможем создать основу для нового поколения компаний, которые будут способствовать развитию и процветанию наших общин по всему миру.
+    <div class="ml-[39px] max-w-[379px]">
+      {
+        lang === "ar" ? (
+          <div class="font-Inter text-[48px] font-bold leading-[53px] text-[#263238]">
+            كيفية تقديم الطلب للحصول على استثمار؟
+          </div>
+        ) : (
+          <div class="font-Inter text-[48px] font-bold leading-[53px] text-[#263238]">
+            Как подать <span class="text-[#0080B5]">заявку</span> для
+            инвестиций?
+          </div>
+        )
+      }
+      <div class="mt-[22px] text-[16px]">
+        {
+          t`Мы приглашаем стартапы, разделяющие наши ценности и стремящиеся оказать позитивное влияние на мусульманское сообщество, подать заявку на финансирование.`
+        }
+        <br />
+        <br />
+        {
+          t`Вместе мы сможем создать основу для нового поколения компаний, которые будут способствовать развитию и процветанию наших общин по всему миру.`
+        }
       </div>
       <div class="mt-[27px]">
-        <UIBtn href="#form" isInternal type="primary">Подать заявку</UIBtn>
+        <UIBtn href="#form" isInternal type="primary">{t`Подать заявку`}</UIBtn>
       </div>
     </div>
   </div>
