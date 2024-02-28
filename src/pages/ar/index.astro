@@ -15,8 +15,9 @@ import FormF from "~/components/form.astro";
 import Contacts from "~/components/contacts.astro";
 import "~/styles/index.css";
 
-const { generator, site, url } = Astro;
-const lang = url.pathname.includes('/ar') ? 'ar' : 'ru'
+const { generator, site } = Astro;
+
+
 const image = new URL("/optimized/social.webp", site);
 ---
 
@@ -42,15 +43,15 @@ const image = new URL("/optimized/social.webp", site);
   <body
     class="h-full overflow-x-hidden text-base "
   >
-    <Header/>
-    <Intro />
-    <Provide />
-    <About />
-    <Invest />
-    <Access />
-    <Focus />
-    <HowTo />
-    <FormF />
-    <Footer />
+    <Header lang={'ar'} />
+    <Intro lang={'ar'}/>
+    <Provide lang={'ar'}/>
+    <About lang={'ar'}/>
+    <Invest lang={'ar'}/>
+    <Access lang={'ar'}/>
+    <Focus lang={'ar'}/>
+    <HowTo lang={'ar'}/>
+    <FormF lang={'ar'}/>
+    <Footer lang={'ar'}/>
   </body>
 </html>

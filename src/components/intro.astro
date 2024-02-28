@@ -1,29 +1,43 @@
 ---
-import { Icon } from "astro-icon/components";
 import UIBtn from "./ui-btn.astro";
-import Timer from './svelte/timer.svelte'
-import SocialMedia from './social-media.astro'
+
+const keyVal = {
+  "Венчурный фонд WAQF": "صندوق رأس المال الاستثماري WAQF",
+  "Новый этап в поддержке ценностных стартапов": "مرحلة جديدة في دعم الشركات الناشئة القيمة",
+  "Фонд WAQF представляет собой уникальную платформу для инвестирования в проекты, ориентированные на ценности и принципы, важные для мусульман.": "الصندوق WAQF يمثّل منصة فريدة للاستثمار في المشاريع التي تركّز على القيم والمبادئ الهامة للمسلمين",
+  "Подать заявку": "تقديم الطلب",
+  "Связаться с нами": "الاتصال بنا"
+}
+const {lang} = Astro.props
+
+const t = (key: string) => {
+  if (lang === 'ar') {
+    return keyVal[key] as string
+  } else {
+    return key
+  }
+}
 ---
 <div id="main" class="relative sm:py-[5vh] py-[54px]  max-w-[1280px] mx-auto sm:bg-[url('/optimized/globe.webp')] sm:bg-contain sm:bg-no-repeat sm:bg-[left_100px_bottom_50px]">
   <div class="flex sm:px-[24px] font-railway items-center justify-between relative">
     <div class="relative z-[10]">
       <div class="font-bold text-[55px] sm:text-[41px] leading-[59px] sm:leading-[45px] sm:max-w-[70vw] text-[#0080B5]">
-        Венчурный фонд WAQF
+        {t`Венчурный фонд WAQF`}
       </div>
       <div class="text-[34px] sm:text-[26px] sm:font-semibold mt-[22px] leading-[40px] sm:leading-[30px] max-w-[600px]">
         <span>
-          Новый этап в поддержке <br/> ценностных стартапов
+          {t`Новый этап в поддержке ценностных стартапов`}
         </span>
       </div>
       <div class="my-[22px] sm:text-[12px] max-w-[600px]">
-        Фонд WAQF представляет собой уникальную платформу для инвестирования в проекты, ориентированные на ценности и принципы, важные для мусульман.
+        {t`Фонд WAQF представляет собой уникальную платформу для инвестирования в проекты, ориентированные на ценности и принципы, важные для мусульман.`}
       </div>
       <div class="sm:pt-[280px] sm:space-x-0 sm:flex sm:flex-col sm:space-y-4 sm:items-center space-x-2">
         <UIBtn full href="#form" isInternal type="primary">
-          Подать заявку
+          {t`Подать заявку`}
         </UIBtn>
         <UIBtn full href="#contacts" isInternal>
-          Связаться с нами
+          {t`Связаться с нами`}
         </UIBtn>
       </div>
     </div>

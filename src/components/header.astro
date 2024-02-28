@@ -2,15 +2,31 @@
 import { Icon } from "astro-icon/components";
 // import ThemeSwitcher from "~/components/theme-switcher.astro";
 import type { NavItem } from "~/types";
-import SocialMedia from "./social-media.astro";
+const keyVal = {
+  "Главное": "الرئيسية",
+  "Наши услуги ": "خدماتنا",
+  "О нас": "من نحن؟",
+  "Как это работает?": "كيف يعمل هذا؟",
+  "Программа": "برنامج",
+  "Контакты": "جهات الاتصال",
+}
+const {lang} = Astro.props
+
+const t = (key: string) => {
+  if (lang === 'ar') {
+    return keyVal[key] as string
+  } else {
+    return key
+  }
+}
 
 const navItems: Array<NavItem> = [
-  { title: "Главное", url: "#main" },
-  { title: "Наши услуги ", url: "#services" },
-  { title: "О нас", url: "#about" },
-  { title: "Как это работает?", url: "#how" },
-  { title: "Программа", url: "#program" },
-  { title: "Контакты", url: "#contacts" },
+  { title: t`Главное`, url: "#main" },
+  { title: t`Наши услуги`, url: "#services" },
+  { title: t`О нас`, url: "#about" },
+  { title: t`Как это работает?`, url: "#how" },
+  { title: t`Программа`, url: "#program" },
+  { title: t`Контакты`, url: "#contacts" },
 ];
 ---
 
