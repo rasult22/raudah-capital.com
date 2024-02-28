@@ -11,6 +11,27 @@ let email = ''
 let phone = ''
 let project_state = ''
 let project_goals = ''
+const keyVal = {
+  "Заявка успешно отправлена": "تم إرسال الطلب بنجاح",
+  "Ваше имя": "اسمك",
+  "Ваша компания": "شركتك",
+  "Ваш email": "بريدك الالكتروني",
+  "Ваш номер": "رقم تليفونك",
+  "На какой стадии ваш проект?": "في أي مرحلة مشروعك؟",
+  "О цели вашего проекта (коротко)": "حول هدف مشروعك (باختصار)",
+  "презентацию с бизнес планом о проекте (в PDF)": "عرض تقديمي مع خطة عمل حول المشروع (بصيغة PDF)",
+  "обязательные поля": "الحقول الإلزامية",
+  "Подать заявку": "تقديم الطلب",
+  "Заполните все обязательные поля!`":"املأ جميع الحقول المطلوبة!"
+}
+export let lang
+const t = (key) => {
+  if (lang === 'ar' && keyVal[key]) {
+    return keyVal[key]
+  } else {
+    return key
+  }
+}
 
 const onSubmit = (e) => {
   if (!fileInput.files.length || !name || !company || !email || !phone || !project_goals || !project_state) {
@@ -51,7 +72,7 @@ const onSubmit = (e) => {
 <form action="" method="post" on:submit={onSubmit} class="mx-auto max-w-[560px] mt-[20px] text-[16px] relative">
   {#if isDone}
   <div class="text-center w-full text-[20px] font-semibold absolute z-10 top-[50%] -translate-y-[100%]">
-    Заявка успешно отправлена ✅
+    {t`Заявка успешно отправлена`} ✅
   </div>
   {/if}
   {#if isLoading}
@@ -71,14 +92,14 @@ const onSubmit = (e) => {
         bind:value={name}
         class="border border-[#E0E3EB] w-full py-[10px] px-[8px] rounded-[4px]"
         type="text"
-        placeholder="Ваше имя*"
+        placeholder={t`Ваше имя`}
       />
       <span class="text-red-500 text-[25px] absolute -left-1 sm:-top-4 sm:left-1 -top-1">*</span>
       <input
         bind:value={company}
         class="border border-[#E0E3EB] w-full py-[10px] px-[8px] rounded-[4px]"
         type="text"
-        placeholder="Ваша компания*"
+        placeholder={t`Ваша компания`}
       />
       <span class="text-red-500 text-[25px] absolute sm:left-1 sm:top-[40%] left-[50%] -top-1">*</span>
     </div>
@@ -87,14 +108,14 @@ const onSubmit = (e) => {
         bind:value={email}
         class="relative border border-[#E0E3EB] w-full py-[10px] px-[8px] rounded-[4px]"
         type="email"
-        placeholder="Ваш email*"
+        placeholder={t`Ваш email`}
       />
       <span class="text-red-500 text-[25px] absolute -left-1 sm:-top-4 sm:left-1 -top-1">*</span>
       <input
         bind:value={phone}
         class="border border-[#E0E3EB] w-full py-[10px] px-[8px] rounded-[4px]"
         type="text"
-        placeholder="Ваш номер*"
+        placeholder={t`Ваш номер`}
       />
       <span class="text-red-500 text-[25px] absolute sm:left-1 sm:top-[40%] left-[50%] -top-1">*</span>
     </div>
@@ -104,7 +125,7 @@ const onSubmit = (e) => {
         bind:value={project_state}
         class="mt-[14px] border w-full border-[#E0E3EB] py-[10px] px-[8px] rounded-[4px]"
         type="text"
-        placeholder="На какой стадии ваш проект?*"
+        placeholder={t`На какой стадии ваш проект?`}
       />
     </div>
     <div class="relative">
@@ -113,7 +134,7 @@ const onSubmit = (e) => {
         bind:value={project_goals}
         class="mt-[14px] border w-full border-[#E0E3EB] py-[10px] px-[8px] rounded-[4px]"
         type="text"
-        placeholder="О цели вашего проекта (коротко)*"
+        placeholder={t`О цели вашего проекта (коротко)`}
       />
     </div>
     <div
@@ -132,15 +153,16 @@ const onSubmit = (e) => {
           fill="black"
         />
       </svg>
-      <span class="font-bold text-[#0080B5]">Прикрепить </span>
-      <span class="text-[#A3AAC2]"
-        >презентацию с бизнес планом о проекте (в PDF)*</span
+
+      <span class:hidden={lang === 'ar'} class="font-bold text-[#0080B5]">Прикрепить </span>
+      <span class={lang === 'ar' ? 'text-[#0080B5]' : `text-[#A3AAC2]`}
+        >{t`презентацию с бизнес планом о проекте (в PDF)`}</span
       >
       <input bind:this={fileInput} class="block w-full mt-[14px]" accept=".pdf" type="file" />
     </div>
     <div>
       <span class="text-red-500 text-[25px]">*</span>
-      обязательные поля
+      {t`обязательные поля`}
     </div>
     {#if showError}
       <div class="mt-[10px] text-center">
@@ -150,7 +172,7 @@ const onSubmit = (e) => {
           </svg>
           <span class="sr-only">Info</span>
           <div>
-            Заполните все обязательные поля!
+            {t`Заполните все обязательные поля!`}`
           </div>
         </div>
       </div>
@@ -160,7 +182,7 @@ const onSubmit = (e) => {
         type="submit"
         class="disabled:cursor-not-allowed disabled:opacity-[0.6] sm:disabled:opacity-[0.2] text-[16px] font-medium rounded-[8px] py-[15px] px-[44px] font-railway hover:opacity-[0.8] active:opacity-[0.7] bg-[#0080B5] text-white"
       >
-        Подать заявку
+        {t`Подать заявку`}`
       </button>
     </div>
   </div>

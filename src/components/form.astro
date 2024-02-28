@@ -1,21 +1,43 @@
 ---
 import UIBtn from "./ui-btn.astro";
 import FormBody from "./svelte/form-body.svelte";
+const keyVal = {
+  "Мы принимаем заявки от стартапов на любой стадии, которые ищут шариатское финансирование и поддержку.":
+    "نحن نقبل طلبات من الشركات الناشئة في أيّ مرحلة تبحث عن تمويل ودعم شرعي",
+};
+const { lang } = Astro.props;
+
+const t = (key: string) => {
+  if (lang === "ar") {
+    return keyVal[key] as string;
+  } else {
+    return key;
+  }
+};
 ---
 
-<div id="form" class="relative font-railway sm:bg-transparent bg-[#F7FDFF]">
+<div id="form" class="relative bg-[#F7FDFF] font-railway sm:bg-transparent">
   <div
     class="relative mx-auto max-w-[1280px] pb-[87px] pt-[109px] sm:px-[24px] sm:pb-[70px] sm:pt-[0px]"
   >
-    <div class="text-center text-[36px] sm:leading-[40px] font-bold">
-      Подать <span class="text-[#0080B5]">заявку</span> с вашим стартапом
-    </div>
+    {
+      lang === "ar" ? (
+        <div class="text-center text-[36px] font-bold sm:leading-[40px]">
+          تقديم الطلب مع مشروع الشركة الناشئة الخاص بك
+        </div>
+      ) : (
+        <div class="text-center text-[36px] font-bold sm:leading-[40px]">
+          Подать <span class="text-[#0080B5]">заявку</span> с вашим стартапом
+        </div>
+      )
+    }
     <div
       class="mx-auto mt-[21px] max-w-[500px] text-center text-[16px] text-[#A3AAC2]"
     >
-      Мы принимаем заявки от стартапов на любой стадии, которые ищут шариатское
-      финансирование и поддержку.
+      {
+        t`Мы принимаем заявки от стартапов на любой стадии, которые ищут шариатское финансирование и поддержку.`
+      }
     </div>
-    <FormBody client:idle />
+    <FormBody lang={lang} client:idle />
   </div>
 </div>
