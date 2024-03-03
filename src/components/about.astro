@@ -4,11 +4,18 @@ const keyVal = {
   "Мы рады объявить о запуске венчурного фонда WAQF, коммерческой инициативы, нацеленной на поддержку стартапов, которые приносят пользу и решают актуальные проблемы мусульманского сообщества по всему миру.": "يسرّنا الإعلان عن إطلاق صندوق رأس المال الاستثماري WAQF، مبادرة تجارية تهدف إلى دعم الشركات الناشئة التي تسهم في تحقيق الفائدة وحل المشاكل الراهنة للمجتمع المسلم حول العالم",
   "Фонд WAQF представляет собой уникальную платформу для инвестирования в проекты, ориентированные на ценности и принципы, важные для мусульман.": "الصندوق WAQF يُعَدُّ منصة فريدة للاستثمار في المشاريع الموجهة نحو القيم والمبادئ الهامة للمسلمين"
 }
+const keyVal_EN = {
+  "О нашем фонде": "About Our Fund",
+  "Мы рады объявить о запуске венчурного фонда WAQF, коммерческой инициативы, нацеленной на поддержку стартапов, которые приносят пользу и решают актуальные проблемы мусульманского сообщества по всему миру.": "We are pleased to announce the launch of the WAQF Venture Fund, a commercial initiative aimed at supporting startups that bring benefit and address pressing issues within the global Muslim community.",
+  "Фонд WAQF представляет собой уникальную платформу для инвестирования в проекты, ориентированные на ценности и принципы, важные для мусульман.": "The WAQF Fund is a unique platform for investing in projects aligned with values and principles important to Muslims."
+}
 const {lang} = Astro.props
 
 const t = (key: string) => {
   if (lang === 'ar') {
     return keyVal[key] as string
+  } else if (lang === 'en') {
+    return keyVal_EN[key]
   } else {
     return key
   }

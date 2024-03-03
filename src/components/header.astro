@@ -10,11 +10,21 @@ const keyVal = {
   "Программа": "برنامج",
   "Контакты": "جهات الاتصال",
 }
+const keyVal_EN = {
+  "Главное": "Main",
+  "Наши услуги ": "Our Services",
+  "О нас": "About Us",
+  "Как это работает?": "How It Works",
+  "Программа": "Program",
+  "Контакты": "Contact Us",
+}
 const {lang} = Astro.props
 
 const t = (key: string) => {
   if (lang === 'ar') {
     return keyVal[key] as string
+  } else if (lang === 'en') {
+    return keyVal_EN[key] as string
   } else {
     return key
   }

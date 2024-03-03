@@ -1,5 +1,5 @@
 <script>
-  const keyVal = {
+const keyVal = {
   'Какие сферы мы финансируем?': 'أي مجالات نموِّل؟',
   'Особое внимание уделяется стартапам в таких сферах, как образование, здравоохранение, финансовые технологии, устойчивое развитие и социальное предпринимательство, где инновации могут сыграть ключевую роль в улучшении качества жизни.': 'يُولِي اهتمامًا خاصًا للشركات الناشئة في مجالات مثل التعليم، والرعاية الصحية، وتكنولوجيا الأمور المالية، والتنمية المستدامة، وريادة الأعمال الاجتماعية، حيث يمكن للابتكار أن يلعب دورًا رئيسيًا في تحسين جودة الحياة',
   
@@ -9,10 +9,22 @@
   'Какие критерия есть для заявки?': 'ما هي المعايير المطلوبة لتقديم الطلب؟',
   'Критерии для заявки в фонд WAQF: проекты должны приносить пользу мусульманскому сообществу и решать его актуальные проблемы, соответствуя при этом ценностям и принципам, важным для мусульман.': 'معايير التقديم للوقف: يجب أن تفيد المشاريع المجتمع المسلم وتعالج القضايا ذات الصلة، مع أن تكون متسقة مع القيم والمبادئ التي تهم المسلمين.'
 }
+const keyVal_EN = {
+  'Какие сферы мы финансируем?': "Which Sectors Do We Finance?",
+  'Особое внимание уделяется стартапам в таких сферах, как образование, здравоохранение, финансовые технологии, устойчивое развитие и социальное предпринимательство, где инновации могут сыграть ключевую роль в улучшении качества жизни.': "We pay special attention to startups in sectors such as education, healthcare, financial technology, sustainable development, and social entrepreneurship, where innovations can play a key role in improving the quality of life.",
+  
+  'Сумма финансирования': "Funding Amount",
+  'Фонд предоставляет финансирование до $1,000,000 для стартапов на стадиях pre-seed и seed, с инвестиционным периодом в 2 года. Средний чек для проектов с социальной значимостью составляет от $50,000 до $150,000.': "The fund provides funding up to $1,000,000 for startups at pre-seed and seed stages, with an investment period of 2 years. The average investment for socially impactful projects ranges from $50,000 to $150,000.",
+
+  'Какие критерия есть для заявки?': "Application Criteria",
+  'Критерии для заявки в фонд WAQF: проекты должны приносить пользу мусульманскому сообществу и решать его актуальные проблемы, соответствуя при этом ценностям и принципам, важным для мусульман.': "Criteria for applying to the WAQF Fund: projects should bring benefit to the Muslim community and address its pressing issues, aligning with the values and principles important to Muslims.",
+}
 export let lang
 const t = (key) => {
   if (lang === 'ar') {
     return keyVal[key]
+  } else if (lang === 'en') {
+    return keyVal_EN[key]
   } else {
     return key
   }

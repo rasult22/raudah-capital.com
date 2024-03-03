@@ -15,6 +15,11 @@ const {lang} = Astro.props
           تركيزنا في الاستثمارات
         </div>
         :
+        lang === 'en' ?
+        <div class="text-[54px] sm:text-[36px] sm:leading-[40px] sm:text-center sm:py-[24px] leading-[59px] font-bold">
+          Our Investment Focus
+        </div>
+        :
         <div class="text-[54px] sm:text-[36px] sm:leading-[40px] sm:text-center sm:py-[24px] leading-[59px] font-bold">
           Наш <span class="text-[#0080B5]">фокус</span> в инвестиций
         </div>

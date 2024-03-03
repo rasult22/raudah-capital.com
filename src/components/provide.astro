@@ -12,11 +12,25 @@ const keyVal = {
   "Бизнес решения": "حلول الأعمال",
   "всесторонние бизнес-советы,  стратегическое планирование, операции, маркетинг и многое другое": "نصائح شاملة للأعمال، وتخطيط استراتيجي، والعمليات، والتسويق، وكثير غيرها"
 }
+const keyVal_EN = {
+  "Вместе мы предоставляем": "Together, we provide:",
+
+  "Финансовая поддержка": "Financial Support",
+  "Предоставляем поддержку, полностью соответствующих принципам исламских финансов": "Offering support that aligns entirely with the principles of Islamic finance.",
+
+  "Наставничество": "Mentorship",
+  "Соединяем вас с лидерами и успешными предпринимателями разделяющие наши ценности": "Connecting you with leaders and successful entrepreneurs who share our values.",
+
+  "Бизнес решения": "Business Solutions",
+  "всесторонние бизнес-советы,  стратегическое планирование, операции, маркетинг и многое другое": "Comprehensive business advice, strategic planning, operations, marketing, and more.",
+}
 const {lang} = Astro.props
 
 const t = (key: string) => {
   if (lang === 'ar') {
     return keyVal[key] as string
+  } else if (lang === 'en') {
+    return keyVal_EN[key] as string
   } else {
     return key
   }

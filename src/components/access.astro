@@ -4,23 +4,33 @@ const keyVal = {
   "Фонд WAQF также обеспечивает уникальную поддержку в выходе стартапов на международные исламские рынки. Благодаря нашей обширной сети контактов и партнерствам, мы предоставляем стартапам платформу для расширения их бизнеса за пределы местного рынка, открывая доступ к глобальной мусульманской экономике.": "يوفر الصندوق WAQF دعمًا فريدًا أيضًا للشركات الناشئة للوصول إلى الأسواق الإسلامية الدولية. من خلال شبكتنا الواسعة من الاتصالات والشراكات، نقدّم للشركات الناشئة منصة لتوسيع أعمالها خارج السوق المحلي، مما يفتح الباب أمام الوصول إلى الاقتصاد الإسلامي العالمي",
   "Подать заявку": "تقديم الطلب",
 }
+const keyVal_EN = {
+  "Фонд WAQF также обеспечивает уникальную поддержку в выходе стартапов на международные исламские рынки. Благодаря нашей обширной сети контактов и партнерствам, мы предоставляем стартапам платформу для расширения их бизнеса за пределы местного рынка, открывая доступ к глобальной мусульманской экономике.": "The WAQF Fund also provides unique support for startups to enter international Islamic markets. With our extensive network of contacts and partnerships, we offer startups a platform to expand their businesses beyond the local market, providing access to the global Muslim economy.",
+  "Подать заявку": "Submit an Application",
+}
 const {lang} = Astro.props
 
 const t = (key: string) => {
   if (lang === 'ar') {
     return keyVal[key] as string
+  } else if (lang === 'en') {
+    return keyVal_EN[key]
   } else {
     return key
   }
 }
-
 ---
 
 <div id="how" class="font-railway sm:px-[24px] sm:pt-[80px] pt-[99px] pb-[50px] sm:bg-[500px]">
   <div class="max-w-[1280px] mx-auto">
     {lang !== 'ar' ? 
+    lang !== 'en' ?
     <div class="text-[54px] sm:text-[36px] sm:leading-[42px] leading-[60px] font-bold text-center">
       Доступ на <span class="text-[#0080B5]">международные <br/></span> исламские <span class="text-[#0080B5]">рынки</span>
+    </div>
+    :
+    <div class="text-[54px] sm:text-[36px] sm:leading-[42px] leading-[60px] font-bold text-center">
+      Access to International Islamic Markets
     </div>
      : 
      <div class="text-[54px] sm:text-[36px] sm:leading-[42px] leading-[60px] font-bold text-center">

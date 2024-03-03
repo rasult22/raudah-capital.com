@@ -17,11 +17,30 @@ const keyVal = {
   "Цель фонда - поддержать молодые компании с амбициями создать значение не только для бизнеса, но и для общества, с инвестициями от $50,000 до $150,000": "هدف الصندوق - دعم الشركات الشابة ذات الطموحات في خلق قيمة ليس فقط للأعمال التجارية، ولكن أيضًا للمجتمع، بتقديم استثمارات تتراوح بين $50,000 إلى $150,000",
   "Подать заявку": "تقديم الطلب",
 }
+const keyVal_EN = {
+  "Объем инвестиций и стадии": "Investment Volume and Support Stages",
+  "поддержки": "",
+
+  "Финансовая поддержка": "Financial Support",
+  "Фонд предлагает инвестиции до $1,000,000 в инновационные стартапы, демонстрирующие потенциал для роста и развития.": "The fund offers investments up to $1,000,000 in innovative startups demonstrating potential for growth and development.",
+  
+  "Период для инвестиции": "Investment Period",
+  "Инвестиционный период ограничен двумя годами, в течение которых фонд будет вкладывать в стартапы на ранней стадии.": "The investment period is limited to two years, during which the fund will invest in early-stage startups.",
+
+  "Разные стадии проекта": "Various Project Stages",
+  "Финансирование открыто для стартапов на стадиях pre-seed и seed, где важен запуск продукта и первые шаги на рынке.": "Funding is open to startups at pre-seed and seed stages, where product launch and initial market steps are crucial.",
+
+  "Проект для социума": "Social Impact Project",
+  "Цель фонда - поддержать молодые компании с амбициями создать значение не только для бизнеса, но и для общества, с инвестициями от $50,000 до $150,000": "The fund's goal is to support young companies with ambitions to create value not only for business but also for society, with investments ranging from $50,000 to $150,000.",
+  "Подать заявку": "Submit an Application",
+}
 const {lang} = Astro.props
 
 const t = (key: string) => {
   if (lang === 'ar') {
     return keyVal[key] as string
+  } else if (lang === 'en') {
+    return keyVal_EN[key]
   } else {
     return key
   }

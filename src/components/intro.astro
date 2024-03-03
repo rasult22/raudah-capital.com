@@ -8,11 +8,20 @@ const keyVal = {
   "Подать заявку": "تقديم الطلب",
   "Связаться с нами": "الاتصال بنا"
 }
+const keyVal_EN = {
+  "Венчурный фонд WAQF":"Venture Fund WAQF",
+  "Новый этап в поддержке ценностных стартапов":"A New Stage in Supporting Values-Driven Startups",
+  "Фонд WAQF представляет собой уникальную платформу для инвестирования в проекты, ориентированные на ценности и принципы, важные для мусульман.": "The WAQF Fund represents a unique platform for investing in projects aligned with values and principles important to Muslims.",
+  "Подать заявку":"Submit an Application",
+  "Связаться с нами":"Contact Us",
+}
 const {lang} = Astro.props
 
 const t = (key: string) => {
   if (lang === 'ar') {
     return keyVal[key] as string
+  } else if (lang === 'en') {
+    return keyVal_EN[key] as string
   } else {
     return key
   }
