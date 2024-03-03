@@ -5,15 +5,20 @@ const keyVal = {
   "Мы принимаем заявки от стартапов на любой стадии, которые ищут шариатское финансирование и поддержку.":
     "نحن نقبل طلبات من الشركات الناشئة في أيّ مرحلة تبحث عن تمويل ودعم شرعي",
 };
+const keyVal_EN = {
+  "Мы принимаем заявки от стартапов на любой стадии, которые ищут шариатское финансирование и поддержку.": "We welcome applications from startups at any stage seeking Sharia-compliant financing and support."
+};
 const { lang } = Astro.props;
 
 const t = (key: string) => {
-  if (lang === "ar") {
-    return keyVal[key] as string;
+  if (lang === 'ar') {
+    return keyVal[key] as string
+  } else if (lang === 'en') {
+    return keyVal_EN[key] as string
   } else {
-    return key;
+    return key
   }
-};
+}
 ---
 
 <div id="form" class="relative bg-[#F7FDFF] font-railway sm:bg-transparent">
@@ -25,7 +30,15 @@ const t = (key: string) => {
         <div class="text-center text-[36px] font-bold sm:leading-[40px]">
           تقديم الطلب مع مشروع الشركة الناشئة الخاص بك
         </div>
-      ) : (
+      ) : 
+      lang === "en" ?
+      (
+        <div class="text-center text-[36px] font-bold sm:leading-[40px]">
+          Submitting an <span class="text-[#0080B5]">Application</span> with Your Startup
+        </div>
+      )
+      :
+      (
         <div class="text-center text-[36px] font-bold sm:leading-[40px]">
           Подать <span class="text-[#0080B5]">заявку</span> с вашим стартапом
         </div>

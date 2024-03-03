@@ -24,10 +24,25 @@ const keyVal = {
   "Подать заявку": "تقديم الطلب",
   "Заполните все обязательные поля!":"املأ جميع الحقول المطلوبة!"
 }
+const keyVal_EN = {
+  "Заявка успешно отправлена": "Succeed!",
+  "Ваше имя": "Your Name",
+  "Ваша компания": "Your Company",
+  "Ваш email": "Your Email",
+  "Ваш номер": "Your Phone Number",
+  "На какой стадии ваш проект?": "At what stage is your project?",
+  "О цели вашего проекта (коротко)": "About the goal of your project (briefly)",
+  "презентацию с бизнес планом о проекте (в PDF)": "Attach a presentation with a business plan about the project (in PDF)",
+  "обязательные поля": "Required fields",
+  "Подать заявку": "Submit Application",
+  "Заполните все обязательные поля!":"Fill all the required field"
+}
 export let lang
 const t = (key) => {
-  if (lang === 'ar' && keyVal[key]) {
+  if (lang === 'ar') {
     return keyVal[key]
+  } else if (lang === 'en') {
+    return keyVal_EN[key]
   } else {
     return key
   }
@@ -154,7 +169,7 @@ const onSubmit = (e) => {
         />
       </svg>
 
-      <span class:hidden={lang === 'ar'} class="font-bold text-[#0080B5]">Прикрепить </span>
+      <span class:hidden={lang === 'ar' || lang === 'en'} class="font-bold text-[#0080B5]">Прикрепить </span>
       <span class={lang === 'ar' ? 'text-[#0080B5]' : `text-[#A3AAC2]`}
         >{t`презентацию с бизнес планом о проекте (в PDF)`}</span
       >
@@ -182,7 +197,7 @@ const onSubmit = (e) => {
         type="submit"
         class="disabled:cursor-not-allowed disabled:opacity-[0.6] sm:disabled:opacity-[0.2] text-[16px] font-medium rounded-[8px] py-[15px] px-[44px] font-railway hover:opacity-[0.8] active:opacity-[0.7] bg-[#0080B5] text-white"
       >
-        {t`Подать заявку`}`
+        {t`Подать заявку`}
       </button>
     </div>
   </div>

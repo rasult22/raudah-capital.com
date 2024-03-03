@@ -20,15 +20,33 @@ const keyVal = {
     "معًا يمكننا بناء أساسًا لجيل جديد من الشركات التي ستسهم في تطوير وازدهار مجتمعاتنا في جميع أنحاء العالم",
     "Подать заявку": "تقديم الطلب",
 };
+const keyVal_EN = {
+  "Подаете заявку": "Submitting Your Application",
+  "Заполните онлайн-форму заявки на нашем сайте. Отправьте подробный бизнес-план, который описывает ваше видение, миссию и как ваш проект приносит пользу обществу.": "Fill out the online application form on our website. Submit a detailed business plan that outlines your vision, mission, and how your project brings benefit to society.",
+
+  "Проверяем ваш стартап":"Review of Your Startup",
+  "Наша команда рассмотрит вашу заявку и свяжется с вами для собеседования.": "Our team will review your application and reach out to you for an interview.",
+
+  "Получаете поддержку": "Receiving Support",
+  "Успешные кандидаты будут приняты в нашу программу и получат индивидуальную поддержку.":"Successful candidates will be accepted into our program and receive individual support.",
+  
+  "Как подать заявку для инвестиций?":"How to Apply for Investment?",
+  "Мы приглашаем стартапы, разделяющие наши ценности и стремящиеся оказать позитивное влияние на мусульманское сообщество, подать заявку на финансирование.": "We invite startups that share our values and aim to have a positive impact on the Muslim community to submit an application for funding.",
+  
+  "Вместе мы сможем создать основу для нового поколения компаний, которые будут способствовать развитию и процветанию наших общин по всему миру.": "Together, we can lay the foundation for a new generation of companies that will contribute to the development and prosperity of our communities worldwide.",
+  "Подать заявку": "Submit an application ",
+};
 const { lang } = Astro.props;
 
 const t = (key: string) => {
-  if (lang === "ar" && keyVal[key]) {
-    return keyVal[key] as string;
+  if (lang === 'ar') {
+    return keyVal[key] as string
+  } else if (lang === 'en') {
+    return keyVal_EN[key] as string
   } else {
-    return key;
+    return key
   }
-};
+}
 ---
 
 <div
@@ -84,7 +102,14 @@ const t = (key: string) => {
           <div class="font-Inter text-[48px] font-bold leading-[53px] text-[#263238]">
             كيفية تقديم الطلب للحصول على استثمار؟
           </div>
-        ) : (
+        ) :
+        lang === 'en' ? (
+          <div class="font-Inter text-[48px] font-bold leading-[53px] text-[#263238]">
+            How to <span class="text-[#0080B5]">Apply</span> for Investment?
+          </div>
+        )
+        : 
+        (
           <div class="font-Inter text-[48px] font-bold leading-[53px] text-[#263238]">
             Как подать <span class="text-[#0080B5]">заявку</span> для
             инвестиций?
